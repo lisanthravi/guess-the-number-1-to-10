@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+   
+    <input type="text" id="in"><br>
+    <button onclick="Add()">Add</button><br>
+    <div id="add">
+        
+    </div>
+
+    <script>
+        var input_text=document.getElementById("in")
+        var output=document.getElementById("add")
+        function Add()
+        {
+            var text_added=input_text.value
+            input_text.value=""
+            var list=document.createElement("p")
+            list.innerHTML=text_added+
+            `<i class="fa fa-trash" onclick="del(event)"></i>
+            <i class="fa fa-edit" onclick="edit(event)"></i>
+            <br>`
+            output.append(list)
+
+        }
+
+        function del(event)
+        {
+             
+            event.target.parentElement.remove()
+        }
+        function edit(event)
+        {
+            input_text.value=event.target.parentElement.textContent
+            del(event)
+        }
+
+    </script>
+
+</body>
+</html>
